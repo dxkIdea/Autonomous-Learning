@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  #elasticsearch 连接信息
+  elasticsearch:
+    rest:
+      uris: http://127.0.0.1:9200
+      username: elastic
+      password: es123456
+
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true

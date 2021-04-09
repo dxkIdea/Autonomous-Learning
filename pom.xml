@@ -5,13 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.dxk</groupId>
-    <artifactId>Autonomous Learning</artifactId>
+    <artifactId>Autonomous-Learning</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <description>像高级架构师看起~</description>
 
     <modules>
         <module>Java SE</module>
+        <module>SpringBoot-Middleware</module>
+        <module>SpringCloud</module>
+        <module>SpringCloud-Alibaba</module>
     </modules>
 
     <!--SpringBoot parent 定义-->
@@ -29,7 +32,15 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <!--Spring Boot版本-->
-        <spring-boot.version>2.4.0</spring-boot.version>
+        <spring-boot.version>2.4.4</spring-boot.version>
+        <!--elasticsearch版本号-->
+        <elasticsearch-version>7.8.0</elasticsearch-version>
+        <!--FastJson版本号-->
+        <fastJson-version>1.2.76</fastJson-version>
+        <!--lombok版本号-->
+        <lombok-version>1.18.20</lombok-version>
+        <!--junit版本号-->
+        <junit-version>4.13.2</junit-version>
     </properties>
 
 
