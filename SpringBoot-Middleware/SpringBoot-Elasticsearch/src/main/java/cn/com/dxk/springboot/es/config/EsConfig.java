@@ -44,6 +44,7 @@ public class EsConfig extends AbstractElasticsearchConfiguration {
     @Value("${spring.elasticsearch.rest.password}")
     private String passWord;
 
+    @Bean(destroyMethod = "close")
     @Override
     public RestHighLevelClient elasticsearchClient() {
         ClientConfiguration clientConfiguration = ClientConfiguration.builder()

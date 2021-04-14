@@ -13,6 +13,7 @@ import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.common.xcontent.XContentType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.support.TransactionTemplate;
 
 import java.io.IOException;
 import java.util.UUID;
@@ -27,7 +28,7 @@ import java.util.UUID;
 @Service
 @Slf4j
 public class UserOperationServiceImpl implements UserOperationService {
-    private static final String USER_INDEX = "USER_V1";
+    private static final String USER_INDEX = "user_v1";
     @Autowired
     private UserDao userDao;
 
@@ -40,7 +41,7 @@ public class UserOperationServiceImpl implements UserOperationService {
      */
     @Override
     public void addUser(User user) {
-        /*IndexResponse response = null;
+        IndexResponse response = null;
         try {
             IndexRequest indexRequest = new IndexRequest(USER_INDEX).id(UUID.randomUUID().toString()).source(JSON.toJSONString(user), XContentType.JSON);
             response = restHighLevelClient.index(indexRequest, RequestOptions.DEFAULT);
@@ -48,7 +49,7 @@ public class UserOperationServiceImpl implements UserOperationService {
             log.error("添加用户异常，{}",e.getMessage());
             e.printStackTrace();
         }
-        log.info("addPlayer {}", JSONObject.toJSON(response));*/
+        log.info("addPlayer {}", JSONObject.toJSON(response));
         userDao.save(user);
     }
 }

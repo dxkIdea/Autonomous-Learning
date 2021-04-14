@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 
 import java.io.Serializable;
 
@@ -20,12 +22,13 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Document(indexName = "USER_INDEX")
+@Document(indexName = "user",createIndex = true)
 public class User implements Serializable {
     /**
      * 姓名
      */
     @Id
+    @Field(type = FieldType.Text)
     private String name;
 
     /**
