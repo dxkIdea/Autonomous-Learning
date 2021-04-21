@@ -9,23 +9,13 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>SpringCloud-Alibaba</artifactId>
+    <artifactId>Common-Cases</artifactId>
     <packaging>pom</packaging>
-    <description>SpringCloud Alibaba使用案例</description>
-    <modules>
-        <module>SpringCloud-Alibaba-Gateway</module>
-    </modules>
+    <description>常见经典案例，如：分布式事务、分布式锁等</description>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
-    <dependencies>
-        <!--lombok-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok-version}</version>
-        </dependency>
-    </dependencies>
+
 </project>

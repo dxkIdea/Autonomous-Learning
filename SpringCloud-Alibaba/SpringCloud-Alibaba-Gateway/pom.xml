@@ -3,15 +3,15 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>Java-SE</artifactId>
+        <artifactId>SpringCloud-Alibaba</artifactId>
         <groupId>org.dxk</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>23-DesignPattern</artifactId>
+    <artifactId>SpringCloud-Alibaba-Gateway</artifactId>
     <packaging>jar</packaging>
-    <description>23中设计模式</description>
+    <description>微服务网关</description>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -19,10 +19,21 @@
     </properties>
 
     <dependencies>
-        <!--只需引入SpringBoot starter即可，无需开启web-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
     </dependencies>
 
