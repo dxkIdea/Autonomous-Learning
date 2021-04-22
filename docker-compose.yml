@@ -98,7 +98,19 @@ services:
     command: redis-sentinel /usr/local/etc/redis/sentinel.conf
 #    volumes:
 #      - D:\SoftWare\IT\IT Environment\docker\volumes\redis\sentinel\conf\sentinel.conf:/usr/local/etc/redis/sentinel.conf
-
+  #################################################################
+  RabbitMQ:
+    image: rabbitmq:3.7.8-management
+    container_name: rabbitmq
+    hostname: localhost
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=root
+      - RABBITMQ_DEFAULT_PASS=root
+      - RABBITMQ_ERLANG_COOKIE=CURIOAPPLICATION
+    restart: always
 networks:
   default:
     external:
