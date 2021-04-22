@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="SpringBoot-Elasticsearch" />
         <module name="SpringCloud-Alibaba-Gateway" />
+        <module name="SpringBoot-RabbitMQ" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -23,6 +24,7 @@
       <module name="Java SE" options="" />
       <module name="SpringBoot-Elasticsearch" options="-parameters" />
       <module name="SpringBoot-Middleware" options="-parameters" />
+      <module name="SpringBoot-RabbitMQ" options="-parameters" />
       <module name="SpringCloud" options="-parameters" />
       <module name="SpringCloud-Alibaba" options="-parameters" />
       <module name="SpringCloud-Alibaba-Gateway" options="-parameters" />

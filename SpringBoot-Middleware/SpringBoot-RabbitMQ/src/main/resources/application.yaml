@@ -1,0 +1,37 @@
+spring:
+  rabbitmq:
+    #指定client连接到的server的地址，多个以逗号分隔(优先取addresses，然后再取host)
+    addresses: 127.0.0.1:5672
+    virtual-host: test-virtualHost
+    username: root
+    password: root
+    #连接超时，单位毫秒，0表示无穷大，不超时
+    connection-timeout: 10000
+    publisher-returns: true
+    listener:
+      # 消费者初始并发值
+      concurrency: 10
+      # 消费者最大并发值
+      max-concurrency: 20
+      # 某消费者一次监听可拉取的消息数
+      prefetch: 5
+      simple:
+        acknowledge-mode: auto
+        default-requeue-rejected: true
+        concurrency: 5
+        max-concurrency: 20
+        retry:
+          enabled: false
+          max-attempts: 5
+          initial-interval: 3000
+          max-interval: 5000
+      direct:
+        retry:
+          enabled: true
+          max-attempts: 3
+          initial-interval: 1000
+    template:
+      retry:
+        enabled: true
+        max-attempts: 3
+        initial-interval: 1000
