@@ -90,12 +90,12 @@ services:
     #同步命名 待确认
     command: redis-server --slaveof redis-master-6381 6381 --requirepass 123456 --masterauth 123456
     restart: always
-  sentinel:
-    image: redis
-    container_name: sentinel-26379
-    ports:
-      - 26379:26379
-    command: redis-sentinel /usr/local/etc/redis/sentinel.conf
+#  redis-sentinel:
+#    image: redis
+#    container_name: sentinel-26379
+#    ports:
+#      - 26379:26379
+#    command: redis-sentinel /usr/local/etc/redis/sentinel.conf
 #    volumes:
 #      - D:\SoftWare\IT\IT Environment\docker\volumes\redis\sentinel\conf\sentinel.conf:/usr/local/etc/redis/sentinel.conf
   #################################################################
@@ -111,6 +111,41 @@ services:
       - RABBITMQ_DEFAULT_PASS=root
       - RABBITMQ_ERLANG_COOKIE=CURIOAPPLICATION
     restart: always
+  ################################################################
+  alibaba-sentinel:
+    image: bladex/sentinel-dashboard
+    container_name: alibaba-sentinel
+    hostname: localhost
+    ports:
+      - 8858:8858
+    environment:
+      # 用于指定控制台的登录用户名为 sentinel
+      - Dsentinel.dashboard.auth.username=sentinel
+      # 用于指定控制台的登录密码为 123456
+      - Dsentinel.dashboard.auth.password=123456
+    restart: always
+  ########################################################
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      - TZ=Asia/Shanghai
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=123
+  #################################################
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 27018:27018
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=root
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=123
+    links:
+      - mongodb:mongo
 networks:
   default:
     external:
