@@ -1,0 +1,38 @@
+server:
+  port: 8083
+spring:
+  boot:
+    admin:
+      ui:
+        title: Admin监控中心
+      client:
+        instance:
+          metadata:
+            tags:
+              environment: local
+  security:
+    user:
+      name: "admin"
+      password: "admin"
+  application:
+    name: monitor
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        namespace: 5ad099fe-c0e1-4883-9942-14737d08565f
+        metadata:
+          user.name: ${spring.security.user.name}
+          user.password: ${spring.security.user.password}
+# 服务端点检查
+management:
+  trace:
+    http:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always

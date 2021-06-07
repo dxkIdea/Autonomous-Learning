@@ -14,6 +14,7 @@
     <description>SpringCloud Alibaba使用案例</description>
     <modules>
         <module>SpringCloud-Alibaba-Gateway</module>
+        <module>SpringCloud-Monitor</module>
     </modules>
 
     <properties>

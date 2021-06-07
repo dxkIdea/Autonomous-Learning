@@ -1,5 +1,14 @@
 version: '3.1'
 services:
+  nginx:
+    image: nginx
+    container_name: nginx
+    restart: always
+    ports:
+    - 8080:80
+    - 80:80
+    - 443:443
+
   mysql-8:
     image: mysql
     container_name: mysql-8
@@ -25,9 +34,9 @@ services:
     ports:
     - 3306:3306
     volumes:
-      - D:\SoftWare\IT\IT Environment\docker\volumes\mysql\data:/var/lib/mysql
-      - D:\SoftWare\IT\IT Environment\docker\volumes\mysql\conf:/etc/mysql/conf.d
-      - D:\SoftWare\IT\IT Environment\docker\volumes\mysql\logs:/logs
+      - E:\IT\docker Volumes\mysql8\data:/var/lib/mysql
+      - E:\IT\docker Volumes\mysql8\conf:/etc/mysql/conf.d
+      - E:\IT\docker Volumes\mysql8\logs:/logs
 #注意：
 # 比如想给用户nacos赋予数据库test所有的表的权限并且不限制nacos用户的连接地址，代码如下
 #    进入容器，mysql -u root -p
@@ -36,7 +45,7 @@ services:
 #    flush privileges;
 ########################################################
   nacos-2:
-    image: nacos/nacos-server
+    image: nacos/nacos-server:2.0.1
     container_name: nacos-2.0
     ports:
     - 8848:8848
@@ -146,9 +155,10 @@ services:
       - ME_CONFIG_MONGODB_ADMINPASSWORD=123
     links:
       - mongodb:mongo
-networks:
-  default:
-    external:
-      name: network_bridge
+
+#networks:
+#  default:
+#    external:
+#      name: network_bridge
 
 
