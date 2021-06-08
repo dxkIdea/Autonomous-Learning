@@ -8,7 +8,7 @@ services:
     - 8080:80
     - 80:80
     - 443:443
-
+#####################################################
   mysql-8:
     image: mysql
     container_name: mysql-8
@@ -155,6 +155,16 @@ services:
       - ME_CONFIG_MONGODB_ADMINPASSWORD=123
     links:
       - mongodb:mongo
+  ################################################
+  sentinel:
+    image: bladex/sentinel-dashboard
+    container_name: sentinel
+    environment:
+      - TZ=Asia/Shanghai
+      - JAVA_OPTS= -Dserver.port=8080 -Dcsp.sentinel.dashboard.server=localhost:8080 -Dsentinel.dashboard.auth.username=sentinel -Dsentinel.dashboard.auth.password=sentinel -Dserver.servlet.session.timeout=7200
+    ports:
+      - 8088:8080
+    restart: always
 
 #networks:
 #  default:
