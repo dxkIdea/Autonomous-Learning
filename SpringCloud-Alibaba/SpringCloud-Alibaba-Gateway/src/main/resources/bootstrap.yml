@@ -37,6 +37,12 @@ spring:
         encode: UTF-8
         # 读取超时时间
         timeout: 3000
+    sentinel:
+      transport:
+        dashboard: 192.168.0.113:8858
+        port: 8719
+      #取消控制台懒加载
+      eager: true
 
 # 服务端点检查
 management:
