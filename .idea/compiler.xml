@@ -10,6 +10,7 @@
         <module name="SpringCloud-Monitor" />
         <module name="SpringBoot-Elasticsearch" />
         <module name="SpringCloud-Alibaba-Gateway" />
+        <module name="SpringCloud-Alibaba-Auth" />
         <module name="SpringBoot-RabbitMQ" />
       </profile>
     </annotationProcessing>
@@ -28,6 +29,7 @@
       <module name="SpringBoot-RabbitMQ" options="-parameters" />
       <module name="SpringCloud" options="-parameters" />
       <module name="SpringCloud-Alibaba" options="-parameters" />
+      <module name="SpringCloud-Alibaba-Auth" options="-parameters" />
       <module name="SpringCloud-Alibaba-Gateway" options="-parameters" />
       <module name="SpringCloud-Monitor" options="-parameters" />
     </option>

@@ -15,6 +15,7 @@
     <modules>
         <module>SpringCloud-Alibaba-Gateway</module>
         <module>SpringCloud-Monitor</module>
+        <module>SpringCloud-Alibaba-Auth</module>
     </modules>
 
     <properties>
