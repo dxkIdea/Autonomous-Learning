@@ -1,7 +1,6 @@
 package cn.com.dxk.springboot.shardingsphere.jdbc.dao;
 
 import cn.com.dxk.springboot.shardingsphere.jdbc.domain.User;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -10,5 +9,6 @@ import org.apache.ibatis.annotations.Mapper;
  * @Description:
  */
 @Mapper
-public interface UserDao extends BaseMapper<User> {
+public interface UserDao /*extends BaseMapper<User>*/ {
+    int inserOneUser(User user);
 }

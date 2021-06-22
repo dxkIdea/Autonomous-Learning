@@ -18,7 +18,7 @@ public class UserService {
     private UserDao userDao;
 
     public int insertUser(User user) {
-        int insert = userDao.insert(user);
+        int insert = userDao.inserOneUser(user);
         log.info("插入数据：{}， 状态值：{}", user.toString(),insert);
         return insert;
     }
