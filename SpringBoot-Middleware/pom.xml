@@ -15,6 +15,7 @@
     <modules>
         <module>SpringBoot-Elasticsearch</module>
         <module>SpringBoot-RabbitMQ</module>
+        <module>SpringBoot-ShardingJDBC</module>
     </modules>
 
     <properties>

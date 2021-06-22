@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="SpringCloud-Monitor" />
+        <module name="SpringBoot-ShardingJDBC" />
         <module name="SpringBoot-Elasticsearch" />
         <module name="SpringCloud-Alibaba-Gateway" />
         <module name="SpringCloud-Alibaba-Auth" />
@@ -27,6 +28,7 @@
       <module name="SpringBoot-Elasticsearch" options="-parameters" />
       <module name="SpringBoot-Middleware" options="-parameters" />
       <module name="SpringBoot-RabbitMQ" options="-parameters" />
+      <module name="SpringBoot-ShardingJDBC" options="-parameters" />
       <module name="SpringCloud" options="-parameters" />
       <module name="SpringCloud-Alibaba" options="-parameters" />
       <module name="SpringCloud-Alibaba-Auth" options="-parameters" />

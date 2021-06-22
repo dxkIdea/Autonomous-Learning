@@ -74,6 +74,8 @@
         <minio.version>7.1.0</minio.version>
         <!--nimbus-jose-jwtJWT库操作JWT令牌-->
         <nimbusds-jwt.version>8.16</nimbusds-jwt.version>
+        <!--shardingsphere-jdbc版本-->
+        <shardingsphere-jdbc.version>4.1.1</shardingsphere-jdbc.version>
     </properties>
 
     <!--引入以来，子模块都会引入-->
@@ -214,6 +216,16 @@
                 <groupId>com.nimbusds</groupId>
                 <artifactId>nimbus-jose-jwt</artifactId>
                 <version>${nimbusds-jwt.version}</version>
+            </dependency>
+            <!--<dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>shardingsphere-sharding-spring-boot-starter</artifactId>
+                <version>${shardingsphere-jdbc.version}</version>
+            </dependency>-->
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+                <version>${shardingsphere-jdbc.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
