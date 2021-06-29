@@ -5,10 +5,18 @@
 
 
     <insert id="inserOneUser" >
-        insert into user (id, user_name, pass_word) values (
+        insert into user (id, user_name, user_password) values (
                                                             #{id,jdbcType=INTEGER},
                                                             #{userName,jdbcType=VARCHAR},
                                                             #{passWord,jdbcType=VARCHAR}
                                                             )
     </insert>
+
+    <select id="selectUserById" resultType="cn.com.dxk.springboot.shardingsphere.jdbc.domain.User">
+        select * from user where id = #{id}
+    </select>
+
+    <delete id="deleteAllData">
+        delete from user;
+    </delete>
 </mapper>

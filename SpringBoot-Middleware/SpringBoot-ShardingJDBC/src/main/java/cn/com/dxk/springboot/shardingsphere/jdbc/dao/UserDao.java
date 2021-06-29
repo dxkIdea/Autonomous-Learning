@@ -11,4 +11,8 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface UserDao /*extends BaseMapper<User>*/ {
     int inserOneUser(User user);
+
+    User selectUserById(Long id);
+
+    int deleteAllData();
 }

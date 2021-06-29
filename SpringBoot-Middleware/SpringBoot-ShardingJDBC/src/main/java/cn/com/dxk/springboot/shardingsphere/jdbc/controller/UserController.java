@@ -4,6 +4,7 @@ import cn.com.dxk.springboot.shardingsphere.jdbc.domain.User;
 import cn.com.dxk.springboot.shardingsphere.jdbc.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,5 +32,25 @@ public class UserController {
                     .build();
             userService.insertUser(user);
         }
+    }
+
+    /**
+     * 通过ID查询user
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "selectUserById/{id}")
+    public String selectUserById(@PathVariable(value = "id") Long id) {
+        return userService.selectUserById(id);
+    }
+
+    /**
+     * 删除所有数据
+     * @return
+     */
+    @RequestMapping(value = "delete")
+    public int deleteAllUser() {
+        int i = userService.deleteAllData();
+        return i;
     }
 }

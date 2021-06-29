@@ -22,4 +22,14 @@ public class UserService {
         log.info("插入数据：{}， 状态值：{}", user.toString(),insert);
         return insert;
     }
+
+    public String selectUserById(Long id) {
+        User user = userDao.selectUserById(id);
+        return user.toString();
+    }
+    public int deleteAllData() {
+        int i = userDao.deleteAllData();
+        log.info("全部删除数据：{}", i);
+        return i;
+    }
 }

@@ -1,20 +1,6 @@
-CREATE TABLE `user_0` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_name` varchar(40) NOT NULL,
-  `pass_word` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  CHARSET=utf8;
-
-CREATE TABLE `user_1` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_name` varchar(40) NOT NULL,
-  `pass_word` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  CHARSET=utf8;
-
-CREATE TABLE `user_2` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_name` varchar(40) NOT NULL,
-  `pass_word` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  CHARSET=utf8;
+CREATE TABLE `user0` (
+                         `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+                         `user_name` char(15) NOT NULL,
+                         `user_password` char(15) NOT NULL,
+                         PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;ENGINE=InnoDB  CHARSET=utf8;

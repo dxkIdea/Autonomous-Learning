@@ -1,0 +1,67 @@
+
+db:
+  one: db0
+
+spring:
+  shardingsphere:
+    #展示修改后的SQL
+    props:
+      sql-show: true
+    #数据源名称
+    datasource:
+      common:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name=com: com.mysql.cj.jdbc.Driver
+      names: db0
+      #数据源db01连接信息
+      db0:
+        jdbc-url: jdbc:mysql://10.248.50.224:3307/abs_prov?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+        username: abs_auth
+        password: abs_auth
+        maxPoolSize: 20
+    ##配置分片规则，参见https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-jdbc/configuration/yaml/sharding/
+    rules:
+      sharding:
+        tables:
+          #工单表
+          prov_work_order:
+            #配置 user 表规则
+            actual-data-nodes: db0.prov_work_order$->{0..2}
+            ## 配置分表策略
+            table-strategy:
+              standard:
+                #分片列名称，多个列以逗号分隔
+                sharding-column: work_order_id
+                sharding-algorithm-name: prov-work-order-inline
+          #用户表
+          user:
+            #配置 user 表规则
+            actual-data-nodes: db0.user$->{0..4}
+            ## 配置分表策略
+            table-strategy:
+              standard:
+                #分片列名称，多个列以逗号分隔
+                sharding-column: id
+                sharding-algorithm-name: user-inline
+
+        sharding-algorithms:
+          prov-work-order-inline:
+            type: INLINE
+            props:
+              algorithm-expression: prov_work_order$->{work_order_id % 3}
+          user-inline:
+            type: INLINE
+            props:
+              algorithm-expression: user$->{id % 5}
+        key-generators:
+          snowflake:
+            type: SNOWFLAKE
+            props:
+              worker-id: 123
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+server:
+  port: 8081
